@@ -53,6 +53,7 @@ before_install:
   - unset SBT_OPTS JVM_OPTS
 
 before_script:
+  - docker-compose -v
   - ./tests/before_script.travis.sh
 
 script:

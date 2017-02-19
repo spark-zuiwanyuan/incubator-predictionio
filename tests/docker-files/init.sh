@@ -17,6 +17,6 @@
 #
 
 set -e
-/wait-for-postgres.sh postgres /bin/true
+/wait-for-postgres.sh postgres
 export PYTHONPATH=/$PIO_HOME/tests:$PYTHONPATH
 eval $@
