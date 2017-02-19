@@ -18,4 +18,6 @@
 
 set -e
 export PYTHONPATH=/$PIO_HOME/tests:$PYTHONPATH
+echo "Sleeping $SLEEP_TIME seconds for all services to be ready..."
+sleep $SLEEP_TIME
 eval $@

@@ -46,5 +46,7 @@ EXPOSE 8000
 # eventserver
 EXPOSE 7070
 
+ENV SLEEP_TIME 30
+
 ENTRYPOINT ["/init.sh"]
 CMD 'bash'
