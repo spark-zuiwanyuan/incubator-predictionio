@@ -43,6 +43,7 @@ sudo: false
 cache: false
 
 env:
+  DOCKER_COMPOSE_VERSION: 1.11.1
   matrix:
     - BUILD_TYPE=Unit METADATA_REP=PGSQL EVENTDATA_REP=PGSQL MODELDATA_REP=PGSQL
     - BUILD_TYPE=Integration METADATA_REP=PGSQL EVENTDATA_REP=PGSQL MODELDATA_REP=PGSQL
@@ -51,6 +52,10 @@ env:
 
 before_install:
   - unset SBT_OPTS JVM_OPTS
+  - sudo rm /usr/local/bin/docker-compose
+  - curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
+  - chmod +x docker-compose
+  - sudo mv docker-compose /usr/local/bin
 
 before_script:
   - docker-compose -v
